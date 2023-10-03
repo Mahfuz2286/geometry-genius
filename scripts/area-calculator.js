@@ -42,16 +42,19 @@ function calculateRectangleArea() {
     const RectangleAreaSpan = document.getElementById('rectangle-area');
     RectangleAreaSpan.innerText = area;
 }
+// Parallelogram area:
 
 // resable function --> reduce duplicate code 
 function calculateParallelogramArea() {
     // Base
     const base = getInputValue('parallelogram-base');
-    console.log(base);
     // Height
     const height = getInputValue('parallelogram-height');
-    console.log(height);
-
+    // validate:-
+    if (isNaN(base) || isNaN(height)) {
+        alert('please insert number');
+        return;
+    }
     // Calculation:-
     const area = base * height;
     setElementInnerText('parallelogram-area', area);
@@ -70,28 +73,45 @@ function setElementInnerText(elementId, area) {
     element.innerText = area;
 }
 
-// ellips area:
 
-function calculateellipseArea(){
-    const majorRadius = getInputValue('ellipse-major-radius');
-    const minorRadius = getInputValue('ellipse-minor-radius');
-    const area = 3.14 * majorRadius * minorRadius;
-    setElementInnerText('ellipse-area', area);
+
+// Rhombus area:
+function calculaterhombusArea() {
+    const base = getInputValue('rhombus-base');
+    const height = getInputValue('rhombus-height');
+    // validate:-
+    if (isNaN(base) || isNaN(height)) {
+        alert('please insert number');
+        return;
+    }
+    const area = 0.5 * base * height;
+    const areaTwoDecimal = area.toFixed(2);
+    setElementInnerText('rhombus-area', areaTwoDecimal);
 }
 
 // pentagaon area:
-
-function calculatepentagonArea(){
+function calculatepentagonArea() {
     const base = getInputValue('pentagon-base');
     const height = getInputValue('pentagon-height');
+    // validate:-
+    if (isNaN(base) || isNaN(height)) {
+        alert('please insert number');
+        return;
+    }
     const area = 0.5 * base * height;
-    setElementInnerText('pentagon-area', area);
+    const areaTwoDecimal = area.toFixed(2);
+    setElementInnerText('pentagon-area', areaTwoDecimal);
 }
-// Rhombus area:
-
-function calculaterhombusArea(){
-    const base = getInputValue('rhombus-base');
-    const height = getInputValue('rhombus-height');
-    const area = 0.5 * base * height;
-    setElementInnerText('rhombus-area',area);
+// ellips area:
+function calculateellipseArea() {
+    const majorRadius = getInputValue('ellipse-major-radius');
+    const minorRadius = getInputValue('ellipse-minor-radius');
+     // validate:-
+     if (isNaN(majorRadius) || isNaN (minorRadius)) {
+        alert('please insert number');
+        return;
+    }
+    const area = 3.14 * majorRadius * minorRadius;
+    const areaTwoDecimal = area.toFixed(2);
+    setElementInnerText('ellipse-area', areaTwoDecimal); 
 }
